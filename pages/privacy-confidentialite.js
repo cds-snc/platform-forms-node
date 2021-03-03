@@ -1,34 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { withTranslation } from "../i18n";
-import { useRouter } from "next/router";
-import { Link } from "../i18n";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
 
-const Privacy = ({ t }) => {
-  const router = useRouter();
-  const urlQuery = router.query;
-
+const Privacy = () => {
+  const { t } = useTranslation("privacy");
   return (
     <>
       <h1 className="gc-h1">{t("title")}</h1>
 
       <div>
-        <p>{t('body')}</p>
+        <p>{t("body", { tbs: <Link href="/where-ever">$t(link_)</Link> })}</p>
       </div>
     </>
   );
 };
 
-Privacy.getInitialProps = async () => ({
-  namespacesRequired: ["privacy"],
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common", "privacy"])),
+  },
 });
 
-Privacy.propTypes = {
-  t: PropTypes.func.isRequired,
-};
+//t("body", { tbs: <Link href="/where-ever">$t(link_)</Link> });
 
-t('body', { tbs: <Link href="/where-ever">$t(link_)</Link> });
-
-
-
-export default withTranslation("privacy")(Privacy);
+export default Privacy;
