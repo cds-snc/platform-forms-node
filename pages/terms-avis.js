@@ -1,11 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { withTranslation } from "../i18n";
-import { useRouter } from "next/router";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
-const Terms = ({ t }) => {
-  const router = useRouter();
-  const urlQuery = router.query;
+const Terms = () => {
+  const { t } = useTranslation("terms");
 
   return (
     <>
@@ -18,12 +16,10 @@ const Terms = ({ t }) => {
   );
 };
 
-Terms.getInitialProps = async () => ({
-  namespacesRequired: ["terms"],
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common", "welcome"])),
+  },
 });
 
-Terms.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-
-export default withTranslation("terms")(Terms);
+export default Terms;

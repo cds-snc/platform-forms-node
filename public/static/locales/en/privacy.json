@@ -1,4 +1,5 @@
 {
   "title": "Privacy",
-  "body": "The {{- tbs}} is committed to protect the privacy of its visitors on its websites. This Privacy Notice summarizes the privacy policy and practices on the Canadian Digital Service website, a website under the responsibility of the Treasury Board Secretariat (TBS)."
+  "body": "The <1>{{tbs_link}}</1> is committed to protect the privacy of its visitors on its websites. This Privacy Notice summarizes the privacy policy and practices on the Canadian Digital Service website, a website under the responsibility of the Treasury Board Secretariat (TBS).",
+  "link_": "Link text"
 }
