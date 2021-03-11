@@ -12,10 +12,7 @@ const Privacy = () => {
       <div>
         <p>
           <Trans t={t} i18nKey="body">
-            The <I18nLink href="/sandbox">{{ tbs_link: t("tbs_link") }}</I18nLink>
-            is committed to protect the privacy of its visitors on its websites. This Privacy Notice
-            summarizes the privacy policy and practices on the Canadian Digital Service website, a
-            website under the responsibility of the Treasury Board Secretariat (TBS).
+            w<I18nLink href="https://www.canada.ca/en/treasury-board-secretariat.html">{{ tbs_link: t("Treasury Board Secretariat") }}</I18nLink>w
           </Trans>
         </p>
       </div>
