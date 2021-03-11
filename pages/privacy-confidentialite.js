@@ -16,6 +16,15 @@ const Privacy = () => {
           </Trans>
         </p>
       </div>
+      <br /><br />
+      <h2 className="gc-h2">{t("title2")}</h2>
+
+      <div>
+        <p>
+          <Trans t={t} i18nKey="privInternet">
+          </Trans>
+        </p>
+      </div>
     </>
   );
 };
