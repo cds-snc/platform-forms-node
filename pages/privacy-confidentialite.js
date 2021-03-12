@@ -12,17 +12,23 @@ const Privacy = () => {
       <div>
         <p>
           <Trans t={t} i18nKey="body">
-            w<I18nLink href="https://www.canada.ca/en/treasury-board-secretariat.html">{{ tbs_link: t("Treasury Board Secretariat") }}</I18nLink>w
+            The Government of Canada is committed to protect the privacy of its visitors on its
+            websites. This privacy notice summarizes the privacy policy and practices of Canadian
+            Digital Service websites, which are under the responsibility of the{" "}
+            <a href="https://www.canada.ca/en/treasury-board-secretariat.html">
+              {{ tbs_link: t("Treasury Board Secretariat") }}
+            </a>{" "}
+            (TBS).
           </Trans>
         </p>
       </div>
-      <br /><br />
+      <br />
+      <br />
       <h2 className="gc-h2">{t("title2")}</h2>
 
       <div>
         <p>
-          <Trans t={t} i18nKey="privInternet">
-          </Trans>
+          <Trans t={t} i18nKey="privInternet"></Trans>
         </p>
       </div>
     </>
