@@ -44,13 +44,13 @@
     "elements": [
       {
         "id": 1,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Section 1: Nomination Category",
-          "titleFr": "Section 1: Catégorie de la nomination",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Section 1: Nomination Category",
+          "descriptionFr": "#### Section 1: Catégorie de la nomination",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -61,7 +61,9 @@
           "titleFr": "Is this a Team or Individual Nomination?",
           "descriptionEn": "",
           "descriptionFr": "",
-          "required": true,
+          "validation": {
+            "required": true
+          },
           "choices": [
             {
               "en": "Team nomination",
@@ -82,7 +84,9 @@
           "titleFr": "Catégorie",
           "descriptionEn": "",
           "descriptionFr": "",
-          "required": true,
+          "validation": {
+            "required": true
+          },
           "choices": [
             {
               "en": "Excellence in Profession",
@@ -113,13 +117,13 @@
       },
       {
         "id": 4,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Section 2: Nominator Information",
-          "titleFr": "Section 2: Information sur le proposant",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Section 2: Nominator Information",
+          "descriptionFr": "#### Section 2: Information sur le proposant",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -133,7 +137,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -147,7 +153,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -161,7 +169,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -175,7 +185,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -189,7 +201,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -203,18 +217,20 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 11,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Section 3: Individual Information (For an Individual Nomination)",
-          "titleFr": "Section 3: Mise en candidature d'une personne (For an Individual Nomination)",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Section 3: Individual Information (For an Individual Nomination)",
+          "descriptionFr": "#### Section 3: Mise en candidature d'une personne (For an Individual Nomination)",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -228,7 +244,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -242,7 +260,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -256,7 +276,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -327,7 +349,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -341,7 +365,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -355,18 +381,20 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 18,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Section 4: Team Nomination (for a Team Nomination)",
-          "titleFr": "Section 4: Mise en candidature d’une équipe (for a Team Nomination)",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Section 4: Team Nomination (for a Team Nomination)",
+          "descriptionFr": "#### Section 4: Mise en candidature d’une équipe (for a Team Nomination)",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -380,7 +408,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -394,12 +424,14 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 21,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Team Members",
           "titleFr": "Membres de l’équipe",
@@ -408,7 +440,9 @@
           "descriptionEn": "You can click Add a row to add more than one team member to your application. Please note that you can only list a maximum of 15 team members.",
           "descriptionFr": "You can click Add a row to add more than one team member to your application. Please note that you can only list a maximum of 15 team members.",
           "charLimit": 5000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -417,7 +451,9 @@
         "properties": {
           "titleEn": "",
           "titleFr": "",
-          "required": false,
+          "validation": {
+            "required": false
+          },
           "subElements": [
             {
               "id": 22,
@@ -430,7 +466,9 @@
                 "descriptionEn": "",
                 "descriptionFr": "",
                 "charLimit": 100,
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             },
             {
@@ -444,7 +482,9 @@
                 "descriptionEn": "",
                 "descriptionFr": "",
                 "charLimit": 100,
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             },
             {
@@ -458,7 +498,9 @@
                 "descriptionEn": "",
                 "descriptionFr": "",
                 "charLimit": 100,
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             },
             {
@@ -529,7 +571,9 @@
                     "fr": "Yukon"
                   }
                 ],
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             },
             {
@@ -543,7 +587,9 @@
                 "descriptionEn": "",
                 "descriptionFr": "",
                 "charLimit": 100,
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             },
             {
@@ -557,7 +603,9 @@
                 "descriptionEn": "",
                 "descriptionFr": "",
                 "charLimit": 100,
-                "required": false
+                "validation": {
+                  "required": false
+                }
               }
             }
           ]
@@ -565,13 +613,13 @@
       },
       {
         "id": 23,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Annex A: Achievement Summary",
-          "titleFr": "Annex A: Résumé des réalisations",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Annex A: Achievement Summary",
+          "descriptionFr": "#### Annex A: Résumé des réalisations",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -585,7 +633,9 @@
           "descriptionEn": "Do not include headings or other formatting. Use a maximum of 200 words",
           "descriptionFr": "Do not include headings or other formatting. Use a maximum of 200 words",
           "charLimit": 200,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -599,7 +649,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -613,7 +665,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 100,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -624,7 +678,9 @@
           "titleFr": "Consent of the Nominator",
           "descriptionEn": "",
           "descriptionFr": "",
-          "required": false,
+          "validation": {
+            "required": false
+          },
           "choices": [
             {
               "en": "I hereby certify that, to the best of my knowledge, the information in this form is true and correct.",

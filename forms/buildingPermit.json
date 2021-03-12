@@ -64,18 +64,20 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 2,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Location",
-          "titleFr": "TBD",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Location",
+          "descriptionFr": "#### Location",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -87,7 +89,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -99,7 +103,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -111,7 +117,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -123,18 +131,20 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 6,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Building information",
-          "titleFr": "TBD",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Building information",
+          "descriptionFr": "#### Building information",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -145,7 +155,9 @@
           "titleFr": "TBD",
           "descriptionEn": "",
           "descriptionFr": "",
-          "required": false,
+          "validation": {
+            "required": false
+          },
           "choices": [
             {
               "en": "Renovation",
@@ -179,7 +191,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -191,7 +205,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -203,7 +219,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -215,7 +233,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -227,23 +247,25 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 13,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Project information",
-          "titleFr": "TBD",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Project information",
+          "descriptionFr": "#### Project information",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 14,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Leaseholder",
           "titleFr": "TBD",
@@ -252,7 +274,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 1000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -264,7 +288,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -334,7 +360,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -346,7 +374,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -358,12 +388,14 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 19,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Architect",
           "titleFr": "TBD",
@@ -372,7 +404,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 1000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -384,7 +418,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -454,7 +490,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -466,7 +504,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -478,12 +518,14 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 24,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Engineer",
           "titleFr": "TBD",
@@ -492,7 +534,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 1000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -504,7 +548,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -574,7 +620,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -586,7 +634,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -598,12 +648,14 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 29,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Contractor",
           "titleFr": "TBD",
@@ -612,7 +664,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 1000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -624,7 +678,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -694,7 +750,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -706,7 +764,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -718,12 +778,14 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 34,
-        "type": "plainText",
+        "type": "richText",
         "properties": {
           "titleEn": "Inspection Agency",
           "titleFr": "TBD",
@@ -732,7 +794,9 @@
           "descriptionEn": "",
           "descriptionFr": "",
           "charLimit": 1000,
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -744,7 +808,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -814,7 +880,9 @@
               "fr": "Yukon"
             }
           ],
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -826,7 +894,9 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -838,18 +908,20 @@
           "placeholderEn": "",
           "placeholderFr": "",
           "description": "",
-          "required": false
+          "validation": {
+            "required": false
+          }
         }
       },
       {
         "id": 39,
-        "type": "heading",
+        "type": "richText",
         "properties": {
-          "titleEn": "Confirmation",
-          "titleFr": "TBD",
-          "headingLevel": "h2",
-          "isSectional": true,
-          "required": false
+          "descriptionEn": "#### Confirmation",
+          "descriptionFr": "#### Confirmation",
+          "validation": {
+            "required": false
+          }
         }
       },
       {
@@ -860,7 +932,9 @@
           "titleFr": "TBD",
           "descriptionEn": "",
           "descriptionFr": "",
-          "required": true,
+          "validation": {
+            "required": true
+          },
           "choices": [
             {
               "en": "I/We hereby make application for a Building Permit under the Provisions of National Park Building Regulations, Town of Jasper Land Use Regulations, Municipality of Jasper Bylaws, Fire Regulations, National Park Management Plans, Local Guidelines, and Canadian Environmental Assessment Act that apply.",

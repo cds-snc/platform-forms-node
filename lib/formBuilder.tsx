@@ -12,7 +12,7 @@ import {
   FileInput,
   DynamicGroup,
   Description,
-  Heading,
+  RichText,
 } from "../components/forms";
 import { FormElement, PropertyChoices, FormMetadataProperties } from "./types";
 
@@ -30,10 +30,7 @@ export function getProperty(field: string, lang: string): string {
 }
 
 // This function is used for select/radio/checkbox i18n change of form labels
-function getLocaleChoices(
-  choices: Array<PropertyChoices> | undefined,
-  lang: string
-) {
+function getLocaleChoices(choices: Array<PropertyChoices> | undefined, lang: string) {
   try {
     if (!choices || !choices.length) {
       return [];
@@ -60,31 +57,33 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
       : [];
 
   const subElements =
-    element.properties && element.properties.subElements
-      ? element.properties.subElements
-      : [];
+    element.properties && element.properties.subElements ? element.properties.subElements : [];
+
+  const isRequired: boolean = element.properties.validation
+    ? element.properties.validation.required
+    : false;
 
   const labelText = element.properties[getProperty("title", lang)]?.toString();
   const labelComponent = labelText ? (
-    <Label key={`label-${id}`} htmlFor={id}>
+    <Label key={`label-${id}`} htmlFor={id} className={isRequired ? "required" : ""}>
       {labelText}
     </Label>
   ) : null;
 
-  const description = element.properties[
-    getProperty("description", lang)
-  ]?.toString();
-  const descriptiveText = description ? (
-    <p className="gc-p" id={`desc-${id}`}>
-      {description}
-    </p>
-  ) : null;
+  const descriptionPerLocale = element.properties[getProperty("description", lang)];
+  const description = descriptionPerLocale ? descriptionPerLocale.toString() : "";
 
   switch (element.type) {
     case "alert":
       return (
         <Alert type="info" noIcon>
-          {descriptiveText}
+          <p className="gc-p" id={`desc-${id}`}>
+            {description ? (
+              <p className="gc-p" id={`desc-${id}`}>
+                {description}
+              </p>
+            ) : null}
+          </p>
         </Alert>
       );
     case "textField":
@@ -96,7 +95,7 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
             type="text"
             id={id}
             name={id}
-            required={element.properties.required}
+            required={isRequired}
             aria-describedby={description ? `desc-${id}` : undefined}
           />
         </Fragment>
@@ -109,7 +108,7 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
           <TextArea
             id={id}
             name={id}
-            required={element.properties.required}
+            required={isRequired}
             aria-describedby={description ? `desc-${id}` : undefined}
           />
         </Fragment>
@@ -122,16 +121,13 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
             id={`${id}.${index}`}
             name={`${id}`}
             label={choice}
-            required={element.properties.required}
+            required={isRequired}
           />
         );
       });
 
       return (
-        <FormGroup
-          name={id}
-          aria-describedby={description ? `desc-${id}` : undefined}
-        >
+        <FormGroup name={id} aria-describedby={description ? `desc-${id}` : undefined}>
           <legend className="gc-label">{labelText}</legend>
           <Description>{description}</Description>
           {checkboxItems}
@@ -146,16 +142,13 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
             id={`${id}.${index}`}
             name={`${id}`}
             label={choice}
-            required={element.properties.required}
+            required={isRequired}
           />
         );
       });
 
       return (
-        <FormGroup
-          name={id}
-          aria-describedby={description ? `desc-${id}` : undefined}
-        >
+        <FormGroup name={id} aria-describedby={description ? `desc-${id}` : undefined}>
           <legend className="gc-label">{labelText}</legend>
           <Description>{description}</Description>
           {radioButtons}
@@ -175,26 +168,12 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
           />
         </Fragment>
       );
-    case "plainText":
+    case "richText":
       return (
-        <div className="gc-plain-text">
-          {labelText ? <h2 className="gc-h3">{labelText}</h2> : null}
-
-          {descriptiveText}
-        </div>
-      );
-    case "heading":
-      return (
-        <Fragment>
-          {labelText ? (
-            <Heading
-              isSectional={element.properties.isSectional ? true : false}
-              headingLevel={"h2"}
-            >
-              {labelText}
-            </Heading>
-          ) : null}
-        </Fragment>
+        <>
+          {labelText ? <h3 className="gc-h3">{labelText}</h3> : null}
+          <RichText>{description}</RichText>
+        </>
       );
     case "fileInput":
       return (
@@ -210,14 +189,7 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
         </Fragment>
       );
     case "dynamicRow": {
-      return (
-        <DynamicGroup
-          name={id}
-          legend={labelText}
-          rowElements={subElements}
-          lang={lang}
-        />
-      );
+      return <DynamicGroup name={id} legend={labelText} rowElements={subElements} lang={lang} />;
     }
     default:
       return <></>;
@@ -230,30 +202,17 @@ function _buildForm(element: FormElement, lang: string): ReactElement {
  * @param formToRender
  * @param language
  */
-const _getRenderedForm = (
-  formMetadata: FormMetadataProperties,
-  language: string
-) => {
+const _getRenderedForm = (formMetadata: FormMetadataProperties, language: string) => {
   if (!formMetadata) {
     return null;
   }
 
   return formMetadata.layout.map((item: string) => {
-    const element = formMetadata.elements.find(
-      (element: FormElement) => element.id === item
-    );
+    const element = formMetadata.elements.find((element: FormElement) => element.id === item);
     if (element) {
-      return (
-        <GenerateElement
-          key={element.id}
-          element={element}
-          language={language}
-        />
-      );
+      return <GenerateElement key={element.id} element={element} language={language} />;
     } else {
-      logMessage.error(
-        `Failed component ID look up ${item} on form ID ${formMetadata.id}`
-      );
+      logMessage.error(`Failed component ID look up ${item} on form ID ${formMetadata.id}`);
     }
   });
 };
@@ -286,11 +245,12 @@ const _getElementInitialValue = (
       dynamicRow[subElementID] = _getElementInitialValue(subElement, language);
     });
     return [dynamicRow];
+  } else if (element.properties.fileType) {
+    // For file attachments, we need several values like the FileName, FileReader base64 object and File object
+    return { file: null, src: null, name: "" };
   } else {
     // Regular inputs (not nested) like text, textarea might have a placeholder value
-    return (
-      (element.properties[getProperty("placeholder", language)] as string) ?? ""
-    );
+    return (element.properties[getProperty("placeholder", language)] as string) ?? "";
   }
 };
 
@@ -300,10 +260,7 @@ const _getElementInitialValue = (
  * @param formMetadata
  * @param language
  */
-const _getFormInitialValues = (
-  formMetadata: FormMetadataProperties,
-  language: string
-) => {
+const _getFormInitialValues = (formMetadata: FormMetadataProperties, language: string) => {
   if (!formMetadata) {
     return null;
   }
@@ -321,9 +278,7 @@ type GenerateElementProps = {
   element: FormElement;
   language: string;
 };
-export const GenerateElement = (
-  props: GenerateElementProps
-): React.ReactElement => {
+export const GenerateElement = (props: GenerateElementProps): React.ReactElement => {
   const { element, language } = props;
   const generatedElement = _buildForm(element, language);
   return <>{generatedElement}</>;

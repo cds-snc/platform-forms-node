@@ -10,9 +10,7 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href={"/privacy-confidentialite"}>
-                {t("footer.privacy.desc")}
-              </Link>
+              <Link href={"/privacy-confidentialite"}>{t("footer.privacy.desc")}</Link>
             </li>
             <li>
               <Link href={"/terms-avis"}>{t("footer.terms.desc")}</Link>

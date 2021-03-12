@@ -7,6 +7,26 @@
   @apply md:text-small_base text-base py-0 text-red-700 font-bold w-full;
 }
 
+.gc-alert {
+  @apply p-4 mb-8;
+  &.gc-alert--validation,
+  &.gc-alert--error {
+    @apply bg-red-100 border-l-2 border-red-default;
+  }
+
+  &.gc-alert--success {
+    @apply bg-green-100;
+  }
+}
+
+.gc-error-link {
+  @apply block mb-4;
+}
+
+.gc-ordered-list {
+  @apply ml-8 text-gray-700 font-normal;
+}
+
 .gc-dropdown {
   background-image: url("../public/img/arrow-down.svg");
   @apply md:w-full w-1/2 md:text-small_base text-base text-gray-700 block border-2 border-black-form py-3 pl-5 pr-10 mt-2 mb-14 appearance-none bg-no-repeat bg-center-right-15px;
@@ -26,6 +46,24 @@
 
 .gc-h2 {
   @apply md:text-small_h2 font-bold text-h2 pb-6;
+}
+
+.gc-richText {
+  p {
+    @extend .gc-p;
+  }
+  h1 {
+    @extend .gc-h1;
+  }
+  h2 {
+    @extend .gc-h2;
+  }
+  h3 {
+    @extend .gc-h3;
+  }
+  h4 {
+    @extend .gc-section-header;
+  }
 }
 
 .gc-item-row {
@@ -78,6 +116,10 @@
 
 .gc-label {
   @apply md:text-small_base block mb-2 text-base font-bold w-full;
+  &.required::after {
+    @apply text-red-500;
+    content: " *";
+  }
 }
 
 .gc-plain-text {
@@ -85,11 +127,14 @@
 }
 
 .gc-textarea {
-  @apply md:text-small_base text-base text-gray-700 border-solid block border-2 border-black-form py-3 px-2 mt-2 mb-14 w-full h-40;
+  @apply md:text-small_base md:w-full text-base text-gray-700 border-solid block border-2 border-black-form py-3 px-2 mt-2 mb-14 w-3/4 h-40;
+  &.full-height {
+    @apply h-auto;
+  }
 }
 
 .gc-input-text {
-  @apply md:w-full md:text-small_base text-base text-gray-700 border-solid border-2 border-black-form py-3 px-2 mt-2 mb-14 w-1/2;
+  @apply md:w-full md:text-small_base text-base text-gray-700 border-solid border-2 border-black-form py-3 px-2 mt-2 mb-14 w-96;
 }
 
 .gc-file-input {
@@ -160,6 +205,18 @@
     content: "";
     background-image: url("../public/img/black-circle.svg");
     @apply absolute w-5 h-5 left-10px top-10px;
+  }
+}
+
+.page-preview-form,
+.page-en-preview-form,
+.page-fr-preview-form {
+  .gc-h1::before {
+    content: "[Preview/Prévisualisation]";
+    @apply mb-10 block font-bold text-green-700;
+  }
+  .gc-button[type="submit"] {
+    display: none;
   }
 }
 
