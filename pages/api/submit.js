@@ -10,13 +10,14 @@ import { logMessage } from "../../lib/logger";
 export const config = {
   api: {
     bodyParser: false,
+    externalResolver: true,
   },
 };
 
-const submit = async (req, res) => {
+const submit = (req, res) => {
   try {
     const incomingForm = new formidable.IncomingForm();
-    await incomingForm.parse(req, (err, fields, files) => {
+    incomingForm.parse(req, (err, fields, files) => {
       if (err) {
         throw new Error(err);
       }
@@ -118,29 +119,29 @@ const processFormData = async (form, reqFields, files, res, req) => {
         .then(async () => {
           if (!isProduction && process.env.NOTIFY_API_KEY) {
             await previewNotify(form, fields).then((response) => {
-              return res.status(201).json({ received: true, htmlEmail: response });
+              res.status(201).json({ received: true, htmlEmail: response });
             });
           } else {
-            return res.status(201).json({ received: true });
+            res.status(201).json({ received: true });
           }
         })
         .catch((err) => {
           logMessage.error(err);
-          return res.status(500).json({ received: false });
+          res.status(500).json({ received: false });
         });
     }
     // Local development and Heroku
     else if (process.env.NOTIFY_API_KEY && process.env.NODE_ENV !== "test") {
       return await previewNotify(form, fields).then((response) => {
-        return res.status(201).json({ received: true, htmlEmail: response });
+        res.status(201).json({ received: true, htmlEmail: response });
       });
     } else {
       logMessage.info("Not Sending Email - Test mode");
-      return res.status(200).json({ received: true });
+      res.status(200).json({ received: true });
     }
   } catch (err) {
     logMessage.error(err);
-    return res.status(500).json({ received: false });
+    res.status(500).json({ received: false });
   }
 };
 
