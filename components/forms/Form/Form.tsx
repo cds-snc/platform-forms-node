@@ -78,9 +78,20 @@ export const Form = withFormik<DynamicFormProps, FormValues>({
     return validationResult;
   },
 
-  handleSubmit: async (values, formikBag) => {
+  handleSubmit: (values, formikBag) => {
     try {
-      await submitToAPI(values as Responses, formikBag, isProduction);
+      const { language, router, formMetadata } = formikBag.props;
+      submitToAPI(values as Responses, formikBag, isProduction).then((htmlEmail) => {
+        router.push(
+          {
+            pathname: `/${language}/id/${formMetadata.id}/confirmation`,
+            query: { htmlEmail: htmlEmail ? btoa(encodeURIComponent(htmlEmail)) : null },
+          },
+          {
+            pathname: `/${language}/id/${formMetadata.id}/confirmation`,
+          }
+        );
+      });
     } catch (err) {
       logMessage.error(err);
     } finally {

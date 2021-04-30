@@ -237,8 +237,8 @@ async function _submitToApI(
   values: Responses,
   formikBag: FormikBag<DynamicFormProps, FormValues>,
   isProduction: boolean
-) {
-  const { formMetadata, language, router } = formikBag.props;
+): Promise<string | null> {
+  const { formMetadata } = formikBag.props;
   const { setStatus } = formikBag;
 
   const formResponseObject = {
@@ -258,7 +258,7 @@ async function _submitToApI(
   );
 
   //making a post request to the submit API
-  await axios({
+  return await axios({
     url: "/api/submit",
     method: "POST",
     headers: {
@@ -269,26 +269,11 @@ async function _submitToApI(
   })
     .then((serverResponse) => {
       if (serverResponse.data.received === true) {
-        const referrerUrl =
-          formMetadata && formMetadata.endPage
-            ? {
-                referrerUrl: formMetadata.endPage[getProperty("referrerUrl", language)],
-              }
-            : null;
-        const htmlEmail = !isProduction ? serverResponse.data.htmlEmail : null;
-        const endPageText =
-          formMetadata && formMetadata.endPage
-            ? JSON.stringify(formMetadata.endPage[getProperty("description", language)])
-            : "";
-        router.push(
-          {
-            pathname: `/${language}/id/${formMetadata.id}/confirmation`,
-            query: { ...referrerUrl, htmlEmail: htmlEmail, pageText: endPageText },
-          },
-          {
-            pathname: `/${language}/id/${formMetadata.id}/confirmation`,
-          }
-        );
+        if (!isProduction) {
+          return serverResponse.data.htmlEmail;
+        } else {
+          return null;
+        }
       } else {
         throw Error("Server submit API returned an error");
       }
