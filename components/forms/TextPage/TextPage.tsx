@@ -13,7 +13,6 @@ import { getProperty } from "../../../lib/formBuilder";
 interface TextPageProps {
   formMetadata: FormMetadataProperties;
   htmlEmail: string | undefined;
-  urlQuery: string | undefined;
   step: string | string[] | undefined;
 }
 
@@ -38,22 +37,28 @@ const getPageContent = (t: TFunction, pageText: string, urlQuery: string | undef
 
 export const TextPage = (props: TextPageProps): React.ReactElement => {
   const { t, i18n } = useTranslation("confirmation");
-  const { urlQuery, htmlEmail, formMetadata } = props;
+  const { formMetadata, htmlEmail } = props;
   const language = i18n.language as string;
 
   const pageText =
     formMetadata && formMetadata.endPage
       ? formMetadata.endPage[getProperty("description", language)]
       : "";
+  const referrerUrl =
+    formMetadata && formMetadata.endPage
+      ? formMetadata.endPage[getProperty("referrerUrl", language)]
+      : "";
 
   return (
     <>
-      {getPageContent(t, pageText, urlQuery)}
+      {getPageContent(t, pageText, referrerUrl)}
 
       {htmlEmail ? (
         <div className="p-5 mt-5 border-double border-gray-400 border-4">
           <h2>Email to Form Owner Below:</h2>
-          <div className="pt-5 email-preview">{parse(htmlEmail)}</div>
+          <div className="pt-5 email-preview">
+            {htmlEmail ? parse(decodeURIComponent(atob(htmlEmail))) : null}
+          </div>
         </div>
       ) : null}
     </>

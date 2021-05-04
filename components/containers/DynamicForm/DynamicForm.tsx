@@ -24,7 +24,7 @@ export const DynamicForm = (props: DynamicFormProps): React.ReactElement => {
   const currentForm = getRenderedForm(formMetadata, language);
   const formTitle = formMetadata[getProperty("title", language)] as string;
   const router = useRouter();
-  const { step, urlQuery, htmlEmail } = router.query;
+  const { step, htmlEmail } = router.query;
 
   // render text pages
   if (step == "confirmation") {
@@ -32,7 +32,6 @@ export const DynamicForm = (props: DynamicFormProps): React.ReactElement => {
       <TextPage
         formMetadata={formMetadata}
         step={step}
-        urlQuery={urlQuery as string | undefined}
         htmlEmail={htmlEmail as string | undefined}
       ></TextPage>
     );
