@@ -1,16 +1,15 @@
-//import getConfig from "next/config";
-import DataView from "../../components/containers/Admin/Dashboard/DataView";
+import Organisations from "../../../components/containers/Admin/Organisations/Organisations";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { crudTemplates } from "../../lib/dataLayer";
-import { requireAuthentication } from "../../lib/auth";
+import { requireAuthentication } from "../../../lib/auth";
+import { crudOrganisations } from "@lib/dataLayer";
 
 export const getServerSideProps = requireAuthentication(async (context) => {
   {
     // getStaticProps is serverside, and therefore instead of doing a request,
     // we import the invoke Lambda function directly
+    const lambdaResult = await crudOrganisations({ method: "GET" });
 
-    const lambdaResult = await crudTemplates({ method: "GET" });
-    const templatesJSON =
+    const organisations =
       lambdaResult &&
       lambdaResult.data &&
       lambdaResult.data.records &&
@@ -21,8 +20,8 @@ export const getServerSideProps = requireAuthentication(async (context) => {
     if (context.locale) {
       return {
         props: {
-          templatesJSON: templatesJSON,
-          ...(await serverSideTranslations(context.locale, ["common", "admin-templates"])),
+          organisations: organisations,
+          ...(await serverSideTranslations(context.locale, ["common", "organisations"])),
         }, // will be passed to the page component as props
       };
     }
@@ -30,4 +29,4 @@ export const getServerSideProps = requireAuthentication(async (context) => {
   }
 });
 
-export default DataView;
+export default Organisations;
